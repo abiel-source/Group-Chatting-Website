@@ -1,0 +1,194 @@
+:root {
+    /*SETTINGS*/
+    --primary-bg-color: #fcfcfc;
+    --secondary-bg-color: #f1f1f1;
+    --third-bg-color: #d9d9d9;
+    --soft-border-color: #d6d6d6;
+    --hard-border-color: #ababab;
+    
+    /*CHAT DISPLAY*/
+    --chat-display-width: 500px;
+    --chat-display-height: 500px;
+    
+    /*CHAT INPUT*/
+    --chat-input-width: 500px;
+    --chat-input-height: 50px;
+    
+    /*CHAT SEND*/
+    --chat-send-width: 100px;
+    --chat-send-height: 30px;
+    
+    /*PARENT CHAT*/
+    --chat-height: calc(var(--chat-display-height) + var(--chat-input-height) + var(--chat-send-height));
+    --chat-width: var(--chat-display-width); /*or: var(--chat-input-width)*/
+    
+    /*ACTIVE USERS*/
+    --active-users-width: 200px;
+    --active-users-height: var(--chat-height);
+    
+    /*WRAPPER DIMENSIONS*/
+    --wrapper-width: calc(var(--active-users-width) + var(--chat-width));
+    --wrapper-height: var(--chat-height); /*or: var(--active-users-height)*/
+}
+
+body {
+    background-color: var(--primary-bg-color);
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.header {
+    overflow: hidden;
+    background-color: var(--secondary-bg-color);
+    padding: 20px 10px;
+}
+
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.header a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.header a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+.header-right {
+    float: right;
+}
+
+h2 {
+    margin: 10px;
+    text-align: center;
+}
+
+.wrapper {
+    height: var(--wrapper-height);
+    width: var(--wrapper-width);
+    
+    margin: auto;
+    /*account for 10px margin between chat_display and chat_input*/
+    /*and for 20px vertical padding in parent chat div*/
+    padding: 10px 10px calc(10px + 10px + 20px) 10px;
+    
+    display: flex;
+    
+    border: 2px solid var(--hard-border-color);
+}
+
+#active_users {
+    width: var(--active-users-width);
+    /*account for 10px margin between chat_display and chat_input*/
+    /*and for 20px vertical padding in parent chat div*/
+    height: calc(var(--active-users-height) + 10px + 20px);
+    
+    margin-right: 10px;
+    border: 1px solid var(--soft-border-color);
+    overflow-y: scroll;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+#user_status_list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+#user_status_list img {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}
+
+.user_status {
+    width: auto;
+    height: 30px;
+    
+    padding: 10px;
+    overflow-x: hidden;
+    
+    border-bottom: 3px double var(--soft-border-color);
+}
+
+#chat {
+    width: var(--chat-width);
+    height: var(--chat-height);
+    
+    /*account for 10px margin between chat_display and chat_input*/
+    padding: 10px 10px calc(10px + 10px) 10px;
+    
+    /*TEST*/
+    border: 1px solid var(--soft-border-color);
+}
+
+#chat_display {
+    width: var(--chat-display-width);
+    height: var(--chat-display-height);
+    
+    margin-bottom: 10px;
+    border: 1px solid var(--soft-border-color);
+    overflow-y: scroll;
+    
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.chat_message {
+    background-color: var(--secondary-bg-color);
+    /*breaks new line to avoid horizontal overflow*/
+    word-wrap: break-word;
+    padding: 5px;
+    border-top: 1px solid var(--hard-border-color);
+}
+
+#chat_input {
+    width: var(--chat-input-width);
+    height: var(--chat-input-height);
+    
+    padding: 0;
+    margin: 0;
+    border: 1px solid var(--soft-border-color);
+    
+    resize: none;
+}
+
+#chat_send {
+    width: var(--chat-send-width);
+    height: var(--chat-send-height);
+    
+    margin-bottom: 0;
+    padding: 0;
+    /*fix spacing anomaly between chat_send & chat_input*/
+    position: relative;
+        bottom: 2px;
+    border: 1px solid var(--soft-border-color);
+    border-radius: 10px;
+
+    float: right;
+}
+
+#chat_send:hover {
+    background-color: var(--third-bg-color);
+}
+
+#chat_send:active {
+    background-color: var(--secondary-bg-color);
+}
