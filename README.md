@@ -1,8 +1,9 @@
 # GroupChat
 ## Demo:
-https://user-images.githubusercontent.com/31304414/124683690-7251a480-de82-11eb-9b25-f50a9ea19a37.mp4
 
 This demo shows a quick conversation between me (laptop) and my imaginary friend (mobile). Although this chat can support multiple individuals at once, who's to say that a group can't have just 2 people?
+
+https://user-images.githubusercontent.com/31304414/124683690-7251a480-de82-11eb-9b25-f50a9ea19a37.mp4
 
 # Author Notes
 
